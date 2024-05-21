@@ -1,0 +1,46 @@
+package com.ms.jdbc.my_jdbc.batchprocessing;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+/**
+ * Batch Processing means sending multiple query to execute to the database and after execution getting back the result
+ */
+
+public class App4 {
+	static PreparedStatement ps;
+	
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		String driver_url = "com.mysql.cj.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/jdbc";
+
+		// Registering the Driver
+		Class.forName(driver_url);
+
+		// Establishing the Connection
+		Connection con = DriverManager.getConnection(db_url, "root", "tiger");
+
+		// Creating Statement(PreparedStatement)
+		ps = con.prepareStatement("INSERT INTO EMPLOYEE(ID,NAME,AGE) VALUES(?,?,?)");
+		ps.setInt(1, 5);
+		ps.setString(2, "Chhaya");
+		ps.setInt(3, 2);
+		
+		ps.addBatch(); //Adding first row data in a batch
+		
+		ps.setInt(1, 6);
+		ps.setString(2, "Shanaya");
+		ps.setInt(3, 3);
+		
+		ps.addBatch(); //Adding second row data in a batch
+		
+		//executing batch
+		int[] rs = ps.executeBatch();//return affected rows
+		
+		int rows=0;
+		for(int i : rs) rows++;
+		
+		System.out.println(rows + " rows inserted successfully..");
+	}
+}
