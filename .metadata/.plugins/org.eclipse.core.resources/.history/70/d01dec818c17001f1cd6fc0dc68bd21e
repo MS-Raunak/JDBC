@@ -1,0 +1,14 @@
+package com.ms.jdbc.my_jdbc.preparedStatement;
+
+public class App1 {
+	public static void main(String[] args) {
+		String url = "com.mysql.cj.jdbc.Driver";
+		
+		//Step-1: Registering the Driver
+		//Step-2: Establishing the Connection
+		//Step-3: Creating Statement(PreparedStatement) 
+		//Step-4: Executing the Query
+		//Step-5: Processing the Result
+	}
+
+}

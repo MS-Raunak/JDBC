@@ -1,0 +1,5 @@
+package com.ms.jdbc.my_jdbc.preparedStatement;
+
+public class App1 {
+
+}

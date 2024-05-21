@@ -1,0 +1,30 @@
+package com.ms.jdbc.my_jdbc.preparedStatement;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class App1 {
+	public static void main(String[] args) throws ClassNotFoundException{
+		String driver_url = "com.mysql.cj.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/jdbc";
+		
+		//Step-1: Registering the Driver
+		Class.forName(url);
+		
+		//Step-2: Establishing the Connection
+		Connection con = DriverManager.getConnection(db_url, "root", "tiger");
+		
+		//Step-3: Creating Statement(PreparedStatement) 
+		PreparedStatement ps = con.prepareStatement("INSERT INTO EMPLOYEE(ID,NAME,AGE) VALUES(?,?,?)");
+		ps.setInt(1, 1);
+		ps.setString(2, "Ram");
+		ps.setInt(3, 22);
+		//Step-4: Executing the Query
+		ps.execute();
+		//Step-5: Processing the Result
+		//Step-5: Close the Connection
+		
+	}
+
+}

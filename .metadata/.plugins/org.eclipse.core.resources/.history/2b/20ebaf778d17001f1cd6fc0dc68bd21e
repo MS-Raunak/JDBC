@@ -1,0 +1,23 @@
+package com.ms.jdbc.my_jdbc.preparedStatement;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class App1 {
+	public static void main(String[] args) throws ClassNotFoundException{
+		String driver_url = "com.mysql.cj.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/jdbc";
+		
+		//Step-1: Registering the Driver
+		Class.forName(url);
+		
+		//Step-2: Establishing the Connection
+		Connection con = DriverManager.getConnection(url)
+		//Step-3: Creating Statement(PreparedStatement) 
+		//Step-4: Executing the Query
+		//Step-5: Processing the Result
+		//Step-5: Close the Connection
+		
+	}
+
+}
