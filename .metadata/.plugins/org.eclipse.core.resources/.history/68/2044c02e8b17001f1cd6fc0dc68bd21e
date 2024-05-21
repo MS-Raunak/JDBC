@@ -40,7 +40,5 @@ public class App {
     		System.out.println("=================================================");
     	}
     	
-    	//Step-6: Close the Connection
-    	con.close();
     }
 }

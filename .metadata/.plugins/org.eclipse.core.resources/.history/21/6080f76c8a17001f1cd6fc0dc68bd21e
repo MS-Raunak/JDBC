@@ -23,24 +23,28 @@ public class App {
     	Statement st = con.createStatement();
     	
     	//Step-4: Executing Query
-    	/*try {
+    	try {
     		st.execute("INSERT INTO STUDENT(ID,NAME,AGE) VALUES(3, 'Gita', 27)");
     		st.execute("INSERT INTO STUDENT(ID,NAME,AGE) VALUES(4, 'Shyam', 30)");
     		System.out.println("data inserted successfully..");
     	}catch(SQLException e) {
     		System.out.println("Something error: data not inserted..");
-    	}*/
+    	}
     
     	
     	//Step-5: Processing the Result from ResultSet
     	ResultSet rs = st.executeQuery("SELECT * FROM STUDENT");
     	
     	while(rs.next()) {
-    		System.out.println( "ID: " + rs.getInt(1) + "\t Name: " + rs.getString(2) + "\t Age: " + rs.getInt(3));
-    		System.out.println("=================================================");
+    		System.out.println( "ID: " + rs.getInt(1));
+    		System.out.println( "Name: " + rs.getString(2));
+    		System.out.println( "Age: " + rs.getInt(3));
+    		
+    		
+    		;
+    		rs.getInt(3);
     	}
     	
-    	//Step-6: Close the Connection
-    	con.close();
+        System.out.println( "Hello World!" );
     }
 }

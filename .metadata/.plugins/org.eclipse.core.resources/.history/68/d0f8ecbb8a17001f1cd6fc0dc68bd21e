@@ -36,11 +36,11 @@ public class App {
     	ResultSet rs = st.executeQuery("SELECT * FROM STUDENT");
     	
     	while(rs.next()) {
-    		System.out.println( "ID: " + rs.getInt(1) + "\t Name: " + rs.getString(2) + "\t Age: " + rs.getInt(3));
-    		System.out.println("=================================================");
+    		System.out.println( "ID: " + rs.getInt(1));
+    		System.out.println( "Name: " + rs.getString(2));
+    		System.out.println( "Age: " + rs.getInt(3));
+    		System.out.println("=========================");
     	}
     	
-    	//Step-6: Close the Connection
-    	con.close();
     }
 }

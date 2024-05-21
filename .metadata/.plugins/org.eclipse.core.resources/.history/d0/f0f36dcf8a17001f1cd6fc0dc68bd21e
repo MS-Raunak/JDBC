@@ -37,10 +37,8 @@ public class App {
     	
     	while(rs.next()) {
     		System.out.println( "ID: " + rs.getInt(1) + "\t Name: " + rs.getString(2) + "\t Age: " + rs.getInt(3));
-    		System.out.println("=================================================");
+    		System.out.println("==================================================================================");
     	}
     	
-    	//Step-6: Close the Connection
-    	con.close();
     }
 }
