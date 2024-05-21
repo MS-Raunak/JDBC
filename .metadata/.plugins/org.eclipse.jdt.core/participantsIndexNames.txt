@@ -1,0 +1,3 @@
+INDEX VERSION 1.134
+D:\JDBC\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1630528725.index
+\JdbcDemo\src\main\resources

@@ -1,0 +1,30 @@
+package com.ms.jdbc.my_jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws ClassNotFoundException, SQLException 
+    {
+    	//Step-1: Loading & Registering the Driver
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+    	
+    	//Step-2: Establishing the Connection
+    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "tiger");
+    	
+    	//Step-3: Creating Statement
+    	Statement st = con.createStatement();
+    	
+    	//Step-4: Executing Query
+    	st.execute("INSERT INTO STUDENT(ID,NAME,AGE) VALUES(1, 'RAM', 22)");
+    	
+        System.out.println( "Hello World!" );
+    }
+}
