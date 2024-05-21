@@ -1,0 +1,69 @@
+package com.ms.jdbc.my_jdbc_crud;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class App3 {
+	private static Connection con;
+
+	// Making Connection With Database
+	public static void establishConnection() throws ClassNotFoundException, SQLException {
+		String driver_url = "com.mysql.cj.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/jdbc";
+
+		// Registering the Driver
+		Class.forName(driver_url);
+
+		// Establishing the Connection
+		con = DriverManager.getConnection(db_url, "root", "tiger");
+	}
+
+	// Inserting data in database
+	public static void insertingData(int id, String name, int age) throws SQLException {
+		// Creating Statement(PreparedStatement)
+		PreparedStatement ps = con.prepareStatement("INSERT INTO EMPLOYEE(ID,NAME,AGE) VALUES(?,?,?)");
+		ps.setInt(1, id);
+		ps.setString(2, name);
+		ps.setInt(3, age);
+
+		ps.execute();
+
+		System.out.println("data inserted successfully");
+	}
+
+	// Get data by id from database
+	public static void GetDataById(int id) throws SQLException {
+		// Creating Statement(PreparedStatement)
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM EMPLOYEE WHERE ID=?");
+		ps.setInt(1, id);
+
+		ResultSet rs = ps.executeQuery();
+
+		while (rs.next()) {
+			System.out.println("ID: " + rs.getInt(1) + "\t Name: " + rs.getString(2) + "\t Age: " + rs.getInt(3));
+		}
+	}
+
+	// Inserting data from database
+	public static void GetAllData(int id) throws SQLException {
+		// Creating Statement(PreparedStatement)
+		PreparedStatement ps = con.prepareStatement("SELECT * FROM EMPLOYEE WHERE ID=?");
+		ps.setInt(1, id);
+
+		ResultSet rs = ps.executeQuery();
+
+		while (rs.next()) {
+			System.out.println("ID: " + rs.getInt(1) + "\t Name: " + rs.getString(2) + "\t Age: " + rs.getInt(3));
+		}
+	}
+
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+		App3.establishConnection();
+		// App3.insertingData(5, "Vishnu", 26);
+		App3.GetDataById(5);
+
+	}
+}

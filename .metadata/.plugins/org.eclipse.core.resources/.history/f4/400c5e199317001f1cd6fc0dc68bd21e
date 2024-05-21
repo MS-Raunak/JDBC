@@ -1,0 +1,39 @@
+package com.ms.jdbc.my_jdbc_crud;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class App3 {
+	private static Connection con;
+	public static void establishConnection() throws ClassNotFoundException, SQLException 
+	{
+		String driver_url = "com.mysql.cj.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/jdbc";
+
+		//Registering the Driver
+		Class.forName(driver_url);
+
+		//Establishing the Connection
+		con = DriverManager.getConnection(db_url, "root", "tiger");
+	}
+	
+	public static void insertingData(int id, String name, int age) throws SQLException {
+		//Creating Statement(PreparedStatement)
+		PreparedStatement ps = con.prepareStatement("INSERT INTO EMPLOYEE(ID,NAME,AGE) VALUES(?,?,?)");
+		ps.setInt(1, 5);
+		ps.setString(2, "Vishnu");
+		ps.setInt(3, 26);
+		
+		ps.execute();
+		
+		System.out.println("data inserted successfully");
+	}
+	
+	
+	public static void main(String[] args)  {
+		
+
+	}
+}
